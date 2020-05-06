@@ -1,10 +1,10 @@
 $(function() {
 
-    // agrego a validator e metodo valor
+    // agrego a validator y el metodo valor
  $.validator.addMethod("valor", function(value, element, arg){
     return arg !== value;
    }, "el valor no puede ser el predefinido");
-  
+  // FORMULARIO DE CONTACTO
     $("form[name='formcontacto']").validate({
       // especificamos las validaciones a tener en cuenta para contactar
       rules: {

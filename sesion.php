@@ -1,6 +1,5 @@
 <?php
 include "index.php";
-session_start();
 include "conexionbd.php";
 
 $mysqli=conexion();
@@ -20,7 +19,7 @@ $mysqli=conexion();
     // si encuentra en la bd mi usuario mirará si es admin o usuario normal y será redirigido según categoría
 	if($dato>0){
         $_SESSION['nombre']=$usuario;
-        echo $dato['Admin'];
+        $_SESSION['idusuario']=$dato['idCliente'];
 		if($dato['Admin']==1){
             echo "<p>Bienvenido administrador.</p>";
 			header('Refresh: 2 , url=paneladministrador.php');
@@ -31,7 +30,8 @@ $mysqli=conexion();
         }
 	
     }else{
-        $_SESSION['nombre']=null;
+		$_SESSION['nombre']=null;
+		$_SESSION['idusuario']==null;
 		echo "no autorizado será redirigido a la página principal";
 		header('Refresh: 1 , url=index.php');
 

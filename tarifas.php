@@ -1,45 +1,35 @@
 <?php
  include "index.php";
+ require "conexionbd.php";
+ $mysqli=conexion();
+
 ?>
-          <div class="d-flex justify-content-center">
-          <table class="  table-responsive-md table table-bordered table-hover table-dark w-50 mt-5">
-            <thead>
+      <div class="mt-5 row justify-content-center page-header">
+            <h1>Tarifas Cinemax Sevilla</h1>
+      </div>
+        <div class="d-flex justify-content-center">
+        <table class=" table-responsive-md table table-bordered table-hover table-striped  table-dark w-50 mt-5">
+          <caption>*Los precios corresponden a la temporada 2019/2020</caption>  
+          <thead>
               <tr>
                 <th scope="col">Tarifa</th>
                 <th scope="col">Precio</th>
-                <th scope="col">Descripción</th>
               </tr>
             </thead>
             <tbody>
+  <?php
+     $tarifas = $mysqli->query("SELECT * from Tarifa");
+     while ($fila = $tarifas->fetch_assoc()) {
+  ?>
               <tr>
-                <td>Normal</td>
-                <td>8.00€</td>
-                <td>entrada normal</td>
+                <td><?php echo $fila['Definicion']?></td>
+                <td><?php echo $fila['Precio']."€"?></td>
               </tr>
-              <tr>
-                <td>Día del espectador</td>
-                <td>6.00€</td>
-                <td>miércoles completo</td>
-              </tr>
-              <tr>
-                <td>Día de la pareja</td>
-                <td>8.00€</td>
-                <td>jueves completo, 2x1</td>
-              </tr>
-              <tr>
-                <td>Matinal</td>
-                <td>5.00€</td>
-                <td>sábados y domingos a las 12:00 am</td>
-              </tr>
-              <tr>
-                <td>Sala 3D</td>
-                <td>9.00€</td>
-                <td>Suplemento de 1.00€ respecto a entrada normal</td>
-              </tr>
-       
-            </tbody>
-          </table>
-          </div>
+
+<?php } ?>
+          </tbody>
+        </table>
+      </div>
 
 
 </body>

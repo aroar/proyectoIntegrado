@@ -1,11 +1,16 @@
 <?php
  include "index.php";
 ?>
-          <div class=" mt-5 row justify-content-center page-header">
-            <h2>Contacta con nosotros</h2>
-        </div>
-          <form method="post" action="mailto:aroaromero@gmail.com" id="formulario-contacto" role="form" name="formcontacto">
-          <div class=" mt-5 row justify-content-center">
+<html>
+  <head></head>
+  <script src="js/validarformularios.js"></script>
+  <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+  <body>
+    <div class=" mt-5 row justify-content-center page-header">
+      <h1>Contacta con nosotros</h1>
+    </div>
+    <form method="post" action="contacto.php" id="formulario-contacto" role="form" name="formcontacto">
+          <div class=" mt-5 row justify-content-center text-white">
             <div class="form-group align-items-center w-50 ">
                 <label for="exampleInputEmail1">Nombre</label>
                 <input type="text" class="form-control" name="nombre" id="nombre">
@@ -21,14 +26,17 @@
               </select>
               <label for="exampleInputEmail1">Mensaje </label>
               <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="areadetexto" id="areadetexto"></textarea>
-              <button type="submit" class="btn btn-primary mx-auto">Enviar</button>
-
+              <button type="submit" name="send" class="btn btn-danger mx-auto">Enviar</button>
             </div>
         </div>
+    </form>
+    <?php
+    
+              if(isset($_POST['send'])){
+                echo  "<div class='text-white'>Enviar email y confirmacion de envio</div>";
+              }
 
-          </form>
-          
-
-
+    ?>
 </body>
+
 </html>

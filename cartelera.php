@@ -1,35 +1,40 @@
 <?php
  include "index.php";
- include "conexionbd.php";
+ require "conexionbd.php";
  $mysqli=conexion();
 ?>
+<html>
+<head></head>
+<body>
+<div class="row">
 
 <?php
-
  $peliculas = $mysqli->query("SELECT * from Pelicula ORDER BY FechadeEstreno DESC");
-
     while ($fila = $peliculas->fetch_assoc()) {
-        echo "<div class='border border-info container mt-4'>";
-        echo "<img src='imagenes/cartelera".$fila['idPelicula'].".jpg' height='300' width='200'>";
-        echo $fila['Título']."<br>";
-        echo $fila['Duración']." min | ".$fila['País']." | ".$fila['Género']." | ".$fila['Calificación']." | ".$fila['FechadeEstreno']."<br>";
-        echo $fila['Sinopsis']."<br>";
         $idpeli=$fila['idPelicula'];
-        $proyecciones = $mysqli->query("SELECT  DISTINCT Fecha from Proyeccion WHERE idPelicula =".$idpeli);
-        while ($proyeccion = $proyecciones->fetch_assoc()) {
-            $fecha=$proyeccion['Fecha'];
-            echo $fecha."<br>";
-            $horas=$mysqli->query("SELECT Hora from Proyeccion WHERE Fecha ='".$fecha."' AND idPelicula =".$idpeli);
-            while ($horario = $horas->fetch_assoc()) {
-                echo $horario['Hora']."  ";                
-            }
-            echo "<br>";
-
-        
-        }
-        echo "</div>";
-    }
-
-
+        $valoraciones = $mysqli->query("SELECT ROUND(AVG(Valoración),1) AS media from Valoración WHERE idPelicula='".$idpeli."'");
+        $valor=$valoraciones->fetch_assoc();
 ?>
 
+<div class="card col-xs-8 col-sm-8 col-md-4 col-lg-4 col-xl-4">
+<div class="card-colums" style="width: 30rem;">
+        <div class="card-body">
+        <img class="card-img" src="imagenes/cartelera<?php echo $idpeli?>.jpg">
+            <h5 class="card-title"><?php echo $fila['Título']?></h5>
+            <h6 class="card-subtitle mb-2"><?php echo $fila['Año']." | ".$fila['Duración']." min | ".$fila['País']." | ".$fila['Género']." | ".$fila['Calificación']." | ".$fila['FechadeEstreno']?></h6>
+            <p class="card-text"><?php echo $fila['Sinopsis']?></p>
+            <button type="button" class="btn btn-light">
+            Valoración  <span class="badge badge-danger"><?php  echo  $valor['media'] ?></span>
+            </button>
+
+        </div>
+        </div>
+    </div> 
+         
+ <?php
+    }
+?>
+</div>
+
+</body>
+</html>
