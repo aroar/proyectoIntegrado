@@ -11,30 +11,53 @@ $mysqli=conexion();
 <body>
 
 <?php
+// me quedo con los datos de sesión del usuario y la cookie dónde tengo mi reserva
 $idproyeccion=$_COOKIE['idproyeccion'];
 $idusuario=$_SESSION['idusuario'];
+
+//lanzo la información de confirmar la reserva
 $proyeccion = $mysqli->query("SELECT * from Proyeccion WHERE idproyeccion='".$idproyeccion."'");
 while ($proyecciones = $proyeccion->fetch_assoc()) {
     $tituloPeli= $mysqli->query("SELECT Título from Pelicula WHERE idPelicula='".$proyecciones['idPelicula']."'");
     $titulo = $tituloPeli->fetch_assoc();
     $tarifas= $mysqli->query("SELECT Precio from Tarifa WHERE idTipo='".$proyecciones['idTipo']."'");
     $preciotarifa=$tarifas->fetch_assoc();
-    $sala=$proyecciones['IdSala'];
     echo "<span id='preciotarifa'style='display:none'>".$preciotarifa['Precio']."</span>";
-    echo " <form action='reservar2.php' method='post'><h1>".$titulo['Título']."<h1>";
-    echo "<h2><span class='badge badge-secondary'>".$proyecciones['Fecha']."</span></h2>";
-    echo "<h3><span class='badge badge-secondary'>".$proyecciones['Hora']."</span></h3>";
-    echo "<h3><span class='badge badge-secondary'> Sala ".$sala."</span></h3>";
-    echo "<button type='button' id='botonsuma' class='btn btn-primary btn-sm'> + </button>";
-    echo " <div class='row'><div class='col-xs-1'> <input name='numentradas'  id='numentradas'class='form-control' readonly type='text' value='1'> </div></div>";
-    echo "<button type='button' id='botonresta' class='btn btn-primary btn-sm'> - </button>";
-    echo "<button type='submit' id='btnreservar' name='btnreservar' class='btn btn-outline-primary'>Reservar</button>
-    ";
-    echo "<div id='preciototal' name='preciototal' class='container' >".$preciotarifa['Precio']."</div></form>";
 
-}
+    
 ?>
+<div  id="containerconfreserva" class='container w-50 justify-content center'>
+        <form action='reservar2.php' method='post'>
+            <h1><?php echo  $titulo['Título'] ?><h1>
+            <h2><strong>Fecha: </strong><?php echo $proyecciones['Fecha']?></h2>
+            <h2><strong>Hora: </strong><?php echo $proyecciones['Hora'] ?><strong> Sala </strong><?php echo $proyecciones['IdSala']?> </h2>
+            
+        <div class="row">
+
+            <div class="col-lg-6">
+                <div class="input-group">
+                <span class="input-group-btn">
+                    <button class="btn btn-danger" id="botonsuma" type="button">+</button>
+                </span>
+                <input type="text" name="numentradas" id="numentradas"readonly value='1'>
+                <span class="input-group-btn">
+                    <button class="btn btn-danger" id="botonresta" type="button">-</button>
+                </span> 
+
+                </div>
+
+            </div>
+        </div>
+        <span>
+         <p>Precio total: <span id='preciototal' name='preciototal' class='d-inline-block' ></span>€</p>       
+        
+         <button type='submit' id='btnreservar' name='btnreservar' class='btn btn-danger'>Reservar</button>
+        </form>
+</div>
+
 <?php
+}
+
     if(isset($_POST['btnreservar'])){
        
         // numero de butacas que ya están reservas de esa proyección

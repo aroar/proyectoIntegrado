@@ -8,28 +8,30 @@ $mysqli=conexion();
 <script type="text/javascript" src="js/jscookie/src/js.cookie.js"></script>
 <script type="text/javascript" src="reservar.js"></script>
 <body>
+<div class="mt-5 row justify-content-center page-header">
+            <h1>Elija Fecha y hora para reservar entradas: </h1>
+      </div>
 <?php
  $peliculas = $mysqli->query("SELECT DISTINCT idPelicula from Proyeccion");
-
-    while ($fila = $peliculas->fetch_assoc()) {
-    echo "<div class='border border-info container mt-4 w-25 d-inline-block'>";
-        echo "<span><img src='imagenes/cartelera".$fila['idPelicula'].".jpg' height='300' width='200'><br>";
-        $idpeli=$fila['idPelicula'];
-        $proyecciones = $mysqli->query("SELECT  DISTINCT Fecha from Proyeccion WHERE idPelicula =".$idpeli);
+ while ($fila = $peliculas->fetch_assoc()) {
+    echo "<div class=' container mt-2 w-25' id='contenedorReservas'>";
+        echo "<img src='imagenes/cartelera".$fila['idPelicula'].".jpg' id='imgreserva'>";
+        $proyecciones = $mysqli->query("SELECT  DISTINCT Fecha from Proyeccion WHERE idPelicula =".$fila['idPelicula']." ORDER BY Fecha");
+        echo "<div id='contenidoreservas'>";
         while ($proyeccion = $proyecciones->fetch_assoc()) {
-            $fecha=$proyeccion['Fecha'];
-            echo "<span class='badge badge-info spanfecha' id='spanfecha' value='".$fecha."'>".$fecha."</span>";
-            echo "<br>";
-            $horas=$mysqli->query("SELECT Hora, idProyeccion from Proyeccion WHERE Fecha ='".$fecha."' AND idPelicula =".$idpeli);
+            $newDate = date("d-m-Y", strtotime($proyeccion['Fecha']));
+          
+            echo "<h3 id='fecha' value='".$proyeccion['Fecha']."'>".$newDate."</h3>";
+            $horas=$mysqli->query("SELECT Hora, idProyeccion from Proyeccion WHERE Fecha ='".$proyeccion['Fecha']."' AND idPelicula =".$fila['idPelicula']);
             while ($horario = $horas->fetch_assoc()) {
-                $hora=$horario['Hora'];
-                $idproyeccion=$horario['idProyeccion'];
-                echo "<span class='spanhora' id='spanhora' value='".$idproyeccion."'>".$hora."</span> ";              
+                $hora=$horario['Hora'];  
+            echo '<button id="spanhora" class="spanhora btn btn-light" value="'.$horario['idProyeccion'].'">'.$hora.'</button>';
             }
-            echo "<br>";
         
         }
-    echo "</div>";
+        echo "</div>";
+        echo "</div>";
+
     }
 
 

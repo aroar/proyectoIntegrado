@@ -16,7 +16,6 @@ $(document).ready(function()
           $("#preciototal").text(precio*valor);
           }
    
-     
 
         });
 

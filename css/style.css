@@ -21,8 +21,67 @@
 	background-color: rgb(28, 109, 163);
 	border-color: rgb(28, 154, 163);
 }
-/* LOGO DEL CINE y menu */
-.logo{
-	width: 100px;
+
+#titulo{
+	text-shadow: 0.05em 0.05em rgb(204, 199, 199);
+
+}
+#contenedorsesion{
+
+	margin: auto;
+	width: 600px !important;
+}
+#contenedorReservas{
+	min-width: max-content;
+	float: left;
+	margin-left: 2.5rem;
+	height: max-content;
+}
+#contenidoreservas{
+	float: right;
+	height: 500px !important;
+
+}
+#imgreserva{
+	float: left;
+	height: 400px;
+	width: 250px;
+	border-radius: 1rem;
+}
+#spanhora{
+	margin-left: 1rem;
+	margin-bottom: 0;
+
+}
+#fecha{
+	text-shadow: 0.1em 0.1em rgb(172, 14, 9);
+	font-size: 2rem;
+	text-align: center;
+	margin-left: 1rem;
+	margin-top: 1rem;
+}
+#containerconfreserva{
+	margin-top: 4rem;
+	background-color:rgb(153, 143, 143); 
+	height: 55%;
+	width: 50%;
+	border-radius: 1rem;
+	min-width: max-content;
+	min-height: 55%;
+}
+#botonsuma,#botonresta{
+	font-size: 2rem;
+}
+#numentradas{
+text-align: center;
+width:48px ;
+outline: none;
+	background-color: #dfe;
+	border: 0;
+}
+#btnreservar{
 	
+float: right;
+	font-size: 1.5rem;
+	margin-bottom: 1rem;
 }
