@@ -1,87 +1,164 @@
-
-.error{
-    color:red;
-    display:block;
+.error {
+  color: red;
+  display: block;
 }
 /* boton de registro */
 .btn-register {
-	background-color: #1CB94E;
-	outline: none;
-	color: #fff;
-	font-size: 14px;
-	height: auto;
-	font-weight: normal;
-	padding: 14px 0;
-	text-transform: uppercase;
-	border-color: rgb(31, 28, 185);
+  background-color: #1cb94e;
+  outline: none;
+  color: #fff;
+  font-size: 14px;
+  height: auto;
+  font-weight: normal;
+  padding: 14px 0;
+  text-transform: uppercase;
+  border-color: rgb(31, 28, 185);
 }
 .btn-register:hover,
 .btn-register:focus {
-	color: #fff;
-	background-color: rgb(28, 109, 163);
-	border-color: rgb(28, 154, 163);
+  color: #fff;
+  background-color: rgb(28, 109, 163);
+  border-color: rgb(28, 154, 163);
 }
 
-#titulo{
-	text-shadow: 0.05em 0.05em rgb(204, 199, 199);
+#titulo {
+  text-shadow: 0.05em 0.05em rgb(204, 199, 199);
+}
+#contenedorsesion {
+  margin: auto;
+  width: 600px !important;
+}
+/* reserva */
+#contenedorReservas {
+  min-width: max-content;
+  float: left;
+  margin-left: 2.5rem;
+  height: max-content;
+}
+#contenidoreservas {
+  float: right;
+  height: 500px !important;
+}
+#imgreserva {
+  float: left;
+  height: 400px;
+  width: 250px;
+  border-radius: 1rem;
+}
+#spanhora {
+  margin-left: 1rem;
+  margin-bottom: 0;
+}
+#fecha {
+  text-shadow: 0.1em 0.1em rgb(172, 14, 9);
+  font-size: 2rem;
+  text-align: center;
+  margin-left: 1rem;
+  margin-top: 1rem;
+}
+#containerconfreserva {
+  font-family: fuentemenu;
+  margin-top: 2rem;
+  padding: 3rem;
+  background-color: white;
+  color: black;
+  height: 70%;
+  min-height: max-content;
+  width: 70%;
+  min-width: max-content;
+  border-radius: 3rem;
+}
+#botonsuma,
+#botonresta {
+  font-size: 2rem;
+}
+hr {
+  height: 3px;
+  background-color: rgb(24, 22, 22);
+}
+#ptotal {
+  font-size: 2rem;
+  padding: 2rem;
+  color: black;
+  text-align: right;
+}
+#numentradas {
+  font-family: fuentemenu;
+  float: left;
+  text-align: center;
+  width: 48px;
+  background-color: #dfe;
+  color: black;
+}
 
+#btnreservar {
+  float: right;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
 }
-#contenedorsesion{
+.tituloreserva {
+  color: black;
+}
+#botonesreserva {
+  position: relative;
+  justify-content: left;
+  max-width: max-content;
+  background-color: red;
+}
+/*valoracion  */
+#inputvaloracion {
+  width: 5%;
+  min-width: 10%;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 1rem;
+  text-align: center;
+}
+#containervaloracion {
+  padding-left: 1rem;
+  margin: 2rem;
+  float: left;
+  width: max-content;
+  height: max-content;
+  min-height: auto;
+  justify-content: center;
+  text-align: center;
+}
 
-	margin: auto;
-	width: 600px !important;
+#imgvaloracion {
+  position: relative;
 }
-#contenedorReservas{
-	min-width: max-content;
-	float: left;
-	margin-left: 2.5rem;
-	height: max-content;
+.btnvalor {
+  font-size: 1.5rem;
+  text-align: center;
 }
-#contenidoreservas{
-	float: right;
-	height: 500px !important;
 
+#btnvalorar {
+  margin-top: 0.5rem;
+  margin-left: 0.5rem;
+  height: auto;
 }
-#imgreserva{
-	float: left;
-	height: 400px;
-	width: 250px;
-	border-radius: 1rem;
+.input-group {
+  width: 100%;
+  justify-content: center;
 }
-#spanhora{
-	margin-left: 1rem;
-	margin-bottom: 0;
+/*MENU ADMIN*/
 
+#tituloadmin {
+  color: red;
+  font-size: 2rem;
 }
-#fecha{
-	text-shadow: 0.1em 0.1em rgb(172, 14, 9);
-	font-size: 2rem;
-	text-align: center;
-	margin-left: 1rem;
-	margin-top: 1rem;
+
+/*Proyecciones admin*/
+.proyeccionesadmincontainer {
+  width: 100%;
+  margin: auto;
+  text-align: center;
 }
-#containerconfreserva{
-	margin-top: 4rem;
-	background-color:rgb(153, 143, 143); 
-	height: 55%;
-	width: 50%;
-	border-radius: 1rem;
-	min-width: max-content;
-	min-height: 55%;
+.containertarifaadmin {
+  text-align: center;
+  justify-content: center;
+  padding: 10px;
 }
-#botonsuma,#botonresta{
-	font-size: 2rem;
-}
-#numentradas{
-text-align: center;
-width:48px ;
-outline: none;
-	background-color: #dfe;
-	border: 0;
-}
-#btnreservar{
-	
-float: right;
-	font-size: 1.5rem;
-	margin-bottom: 1rem;
+.tablatarifaadmin {
+  margin: auto;
 }

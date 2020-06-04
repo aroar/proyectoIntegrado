@@ -1,7 +1,5 @@
 <?php
-session_start();
-session_destroy();
-echo "se ha cerrado su sesión";
-header('Refresh: 1 , url=index.php');
-
+    session_start();
+    session_destroy();
+    header('Refresh: 0 , url=principal.php');
 ?>

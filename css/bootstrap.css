@@ -1714,7 +1714,7 @@ pre code {
 .table {
   width: 100%;
   margin-bottom: 1rem;
-  color: #212529;
+  
 }
 
 .table th,
@@ -1764,7 +1764,7 @@ pre code {
 }
 
 .table-hover tbody tr:hover {
-  color: #212529;
+ 
   background-color: rgba(0, 0, 0, 0.075);
 }
 
@@ -4076,13 +4076,19 @@ input[type="button"].btn-block {
 }
 
 .custom-range {
-  width: 100%;
+
+   -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  border-radius: 40px;
+  width: 50%;
   height: 1.4rem;
   padding: 0;
+  margin-top: 1rem;
+  margin-right: 0.5rem;
   background-color: transparent;
   -webkit-appearance: none;
   -moz-appearance: none;
-  appearance: none;
+  appearance: none; 
 }
 
 .custom-range:focus {
@@ -4090,15 +4096,15 @@ input[type="button"].btn-block {
 }
 
 .custom-range:focus::-webkit-slider-thumb {
-  box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(184, 36, 48, 0.25);
 }
 
 .custom-range:focus::-moz-range-thumb {
-  box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(248, 40, 25, 0.25);
 }
 
 .custom-range:focus::-ms-thumb {
-  box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(255, 0, 34, 0.25);
 }
 
 .custom-range::-moz-focus-outer {
@@ -4109,9 +4115,9 @@ input[type="button"].btn-block {
   width: 1rem;
   height: 1rem;
   margin-top: -0.25rem;
-  background-color: #007bff;
+  background-color: #5f5b5a;
   border: 0;
-  border-radius: 1rem;
+  border-radius: 2rem;
   -webkit-transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   -webkit-appearance: none;
@@ -4126,7 +4132,7 @@ input[type="button"].btn-block {
 }
 
 .custom-range::-webkit-slider-thumb:active {
-  background-color: #b3d7ff;
+  background-color: #242527;
 }
 
 .custom-range::-webkit-slider-runnable-track {
@@ -4142,7 +4148,7 @@ input[type="button"].btn-block {
 .custom-range::-moz-range-thumb {
   width: 1rem;
   height: 1rem;
-  background-color: #007bff;
+  background-color: #ff0000;
   border: 0;
   border-radius: 1rem;
   -moz-transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -4178,7 +4184,7 @@ input[type="button"].btn-block {
   margin-top: 0;
   margin-right: 0.2rem;
   margin-left: 0.2rem;
-  background-color: #007bff;
+  background-color: #303336;
   border: 0;
   border-radius: 1rem;
   -ms-transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -5565,6 +5571,7 @@ a.badge-dark:focus, a.badge-dark.focus {
 .list-group-item-action:active {
   color: #212529;
   background-color: #e9ecef;
+
 }
 
 .list-group-item {

@@ -58,7 +58,7 @@ $(function() {
       rules: {
         nombreusuario: {
             required:true,
-            minlength:5
+            minlength:4
         },
         emailregistro: {
           required: true,
@@ -78,10 +78,10 @@ $(function() {
       messages: {
         nombreusuario: {
             required: "Debes rellenar el campo del nombre",
-            minlength: "Minimo 5 caracteres"
+            minlength: "Minimo 4 caracteres"
           },
         emailregistro:{
-            required: "debe rellenar este campo",
+            required: "Debe rellenar este campo",
             email: "Escriba un formato correcto",
         },
         password:{
@@ -94,7 +94,10 @@ $(function() {
       },
      // se envia al php si ha validado
       submitHandler: function(form) {
+        alert("registrado correctamente");
         form.submit();
       }
     });
+
+
   });
