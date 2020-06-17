@@ -1,4 +1,6 @@
 <?php
+        // FUNCION PARA ENVIAR EMAIL Y RECIBIR EN LA APP
+
        // Incluir la libreria PHPMailer
        use PHPMailer\PHPMailer\PHPMailer;
        use PHPMailer\PHPMailer\Exception;
